@@ -1,0 +1,38 @@
+.SidebarOption{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.SidebarOption > .MuiSvgIcon-root{
+    padding: 20px;
+    font-size: 30px!important;
+}
+.SidebarOption >h2{
+    font-weight: 800;
+    font-size: 18px;
+    margin-right: 20px;
+}
+.SidebarOption:hover {
+    border-radius: 30px;
+    padding:0px;
+    margin: 0;
+    background-color: #e8f5fe;
+    color: #50b7f5;
+    
+    
+}
+
+.tweet {
+   
+   width: 100%;
+    padding:20px;
+    background-color:  #50b7f5;
+    color:white;
+    border:none;
+    border-radius: 30px;
+    font-weight: 900;
+    margin-top: 10px;
+}
+.sidebar--active{
+    color:#50b7f5;
+}
