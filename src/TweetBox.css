@@ -1,0 +1,37 @@
+.person{
+    font-size: 35px !important;
+}
+.tweet_box{
+    padding-bottom: 10px;
+    padding-right: 10px;
+    border-bottom: 8px solid  #e6ecf0;
+}
+.tweet_box >form{
+    display: flex;
+    flex-direction: column;
+}
+.tweet_box_input{
+    display: flex;
+    padding: 20px;
+
+}
+.tweet_box_input >input{
+    flex: 1;
+    font-size: 20px;
+    
+    border: none;
+   margin-left: 10px;
+   
+    
+}
+.tweet_button{
+    width: 80px;
+    height: 40px;
+  
+    margin-left: auto;
+    border-radius: 30px;
+    padding: 10px;
+    background-color:#50b7f5 ;
+    color: white;
+    border: none;
+}

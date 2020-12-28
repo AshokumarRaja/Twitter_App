@@ -3,6 +3,7 @@
   border-right: 1px solid #e6e3f0;
   min-width: fit-content;
   overflow-y: scroll;
+ 
   
 }
 #feed::-webkit-scrollbar {
