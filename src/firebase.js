@@ -1,4 +1,4 @@
-import firebase from 'firebase'
+import * as firebase from 'firebase'
 const firebaseConfig = {
     apiKey: "AIzaSyAkUiaMAotBOT7GJHblVk2gC9h37myNPiY",
     authDomain: "twitter-19942.firebaseapp.com",
@@ -8,4 +8,5 @@ const firebaseConfig = {
     appId: "1:885295846850:web:26f1ed981eabb8bea6b25b",
     measurementId: "G-E726X9TNF2"
   };
-  const firebase =firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
+  export default firebase;

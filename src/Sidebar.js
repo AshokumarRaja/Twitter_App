@@ -10,19 +10,25 @@ import List from '@material-ui/icons/ListAlt'
 import Profile from '@material-ui/icons/PermIdentity'
 import More from '@material-ui/icons/MoreHorizOutlined'
 import './sidebar.css'
+import Feed from './Feed'
+import Widgets from './Widgets'
 const Sidebar = () => {
     return (
-        <div className="sidebar" >
-            <TwitterIcon className="twiiterIcon" />
-            <SidebarOption active Icon={Home} text="Home" />
-            <SidebarOption Icon={Explore} text="Explore" />
-            <SidebarOption Icon={Notification} text="Notification" />
-            <SidebarOption Icon={Message} text="Message" />
-            <SidebarOption Icon={BookMark} text="BookMark" />
-            <SidebarOption Icon={List} text="List" />
-            <SidebarOption Icon={Profile} text="Profile" />
-            <SidebarOption Icon={More} text="More" />
-            <button className="tweet">Tweet</button>
+        <div className="app">
+            <div className="sidebar" >
+                <TwitterIcon className="twiiterIcon" />
+                <SidebarOption active Icon={Home} text="Home" />
+                <SidebarOption Icon={Explore} text="Explore" />
+                <SidebarOption Icon={Notification} text="Notifications" />
+                <SidebarOption Icon={Message} text="Message" />
+                <SidebarOption Icon={BookMark} text="BookMark" />
+                <SidebarOption Icon={List} text="List" />
+                <SidebarOption Icon={Profile} text="Profile" />
+                <SidebarOption Icon={More} text="More" />
+                <button className="tweet">Tweet</button>
+            </div>
+            <Feed/>
+            <Widgets/>
         </div>
     )
 }

@@ -1,0 +1,64 @@
+
+.main{
+    display: flex;
+}
+.twitter_backimg{
+    position: relative;
+    left: 160px;
+    height: 100vh;
+    object-fit: fill;
+    
+  }
+  .input >form{
+        display: flex;
+        flex-direction: column;
+  }
+  .login{
+    box-sizing: border-box;
+    padding:20px;
+    background-color: #50b7f5;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
+  .signup{
+    box-sizing: border-box;
+    padding:10px;
+    border-color:#50b7f5;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: white;
+    color:#50b7f5 ;
+    font-weight: 900;
+    margin-top: 20px;
+   outline: none;
+  }
+  
+ .input input{
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    width: 400px;
+    outline: none;
+   
+  }
+  
+  .input >h2{
+      text-align: center;
+      margin-bottom: 20px;
+  }
+  .input{
+   margin-top: 10%;
+   margin-left: 10%;
+  }
+  
+  
+  .img{
+      width: 50%;
+      height: 100vh;
+      overflow: hidden;
+      background-color: #50b7f5;
+  }
+  
