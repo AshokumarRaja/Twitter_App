@@ -1,40 +1,113 @@
 .post{
     display: flex;
     align-items: flex-start;
-    padding-bottom: 10px;
     border-bottom: 1px solid #e6ecf0;
+    cursor: pointer;
+   
+}
+.post:hover{
+    background-color: rgb(248, 249, 250);
 }
 .post_body>img{
     border-radius: 20px;
     
 }
+.chat:hover{
+color:#50b7f5
+}
+
 .post_footer{
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
     cursor: pointer;
 }
+.Post_Img{
+    width: 550px;
+}
 .post_badge{
     font-size: 14px !important;
     color:#50b7f5 !important;
 }
+
 .post_body{
     flex: 1;
-    padding: 10px;
+    padding: 10px 10px 10px 0px;
 }
 .post_avatar{
     padding: 20px;
 }
+#like:hover{
+    color:rgb(224, 36, 94)
+  }
+  #like{
+      margin-right: 150px;
+  }
+#close1 {
+ margin: -20px;
+ 
+border-bottom:1px solid #e6e3f0 ;
+  }
+  .closeIcon{
+      margin: 15px 15px 15px 20px;
+      color:#50b7f5;
+      cursor: pointer;
+  }
+  #modal_content{
+      margin-top: 30px;
+      margin-left: -10px;
+      display: flex;
+  }
+  .reply{
+      margin-left: 40px;
+      margin-top: 20px;
+      color: rgb(91, 112, 131);
+      cursor: pointer;
+  }
+  .reply span{
+      color:#50b7f5
+  }
+  .reply_input{
+      margin-left: 5px;
+      font-size: 20px;
+      outline: none;
+      border: none;
+     
+  }
 .post_header_text > h3{
     font-size: 15px;
     margin-bottom: 5px;
 }
+.modal_content_reply{
+    display: flex;
+    margin-top: 45px;
+    margin-left: -10px;
+    
+}
 .post_headerDescription{
     margin-bottom: 10px;
     font-size: 15px;
+    margin-left: -10px;
+    margin-top: 10px;
 }
+
 .post_headerSpecial{
     font-weight: 600;
-    font-size: 12px;
+    font-size: 15px;
     color: lightgray;
+}
+.person1{
+    font-size: 50px !important;
+    margin-top: -10px;
+    margin-left: 5px;
+}
+.tweet_button_Post{
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    outline: none;
+}
+.post_Person{
+    margin-top: 0;
+    margin-left: 10px;
 }

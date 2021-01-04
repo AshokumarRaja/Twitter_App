@@ -1,7 +1,24 @@
 .app{
     display: flex;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
-    height: 100vh;
+    height: 100vh; 
    
 }
+@media screen and (max-width: 1320px) {
+    .widgets{
+      display: none;
+    }
+    .other{
+        margin-left: auto;
+    }
+    
+  }
+  @media screen and (max-width: 970px) {
+    .SidebarOption h2,.logout1 button{
+      display: none;
+    }
+   
+    
+    
+  }

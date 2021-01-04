@@ -2,6 +2,8 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    margin-top: 20px;
+   
 }
 .SidebarOption > .MuiSvgIcon-root{
     padding: 15px; 

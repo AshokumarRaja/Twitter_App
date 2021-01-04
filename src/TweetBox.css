@@ -1,5 +1,6 @@
 .person{
-    font-size: 30px !important;
+    font-size: 60px !important;
+    cursor: pointer;
 }
 .tweet_box{
     padding-bottom: 10px;
@@ -8,30 +9,59 @@
 }
 .tweet_box >form{
     display: flex;
-    flex-direction: column;
+   
 }
 .tweet_box_input{
     display: flex;
     padding: 20px;
 
 }
+.icons{
+    margin-left: 60px;
+    cursor: pointer;
+}
+.imageUpl{
+    color:#50b7f5;
+    font-size: 30px !important;
+   
+}
+.Gif{
+    color:rgba(29,161,242,1.00);
+    font-size: 35px !important;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.Gif1{
+    color:rgba(29,161,242,1.00);
+    font-size: 35px !important;
+   
+    margin-top: 32px;
+    margin-right: 10px;
+}
+
+.other{
+    display: flex;
+    margin-left: auto;
+    
+}
 .tweet_box_input >input{
     flex: 1;
     font-size: 20px;
-    
     border: none;
-   margin-left: 10px;
-   
+    outline: none;
+   margin-left: 10px;  
     
 }
 .tweet_button{
-    width: 80px;
+    width: 100px;
     height: 40px;
-  
-    margin-left: auto;
+    cursor: pointer;
+    margin-right: 10px;
     border-radius: 30px;
     padding: 10px;
     background-color:#50b7f5 ;
     color: white;
     border: none;
+    margin-top: 32px;
+    outline:none
 }

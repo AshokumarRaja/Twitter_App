@@ -1,0 +1,15 @@
+.likes {
+   
+    margin-top: 20px;
+   
+    font-size: 20px;
+    border-bottom: 1px solid #e6e3f0;
+    margin-left: 0px;
+}
+.likes p{
+    margin-left: 60px;
+    padding-bottom: 10px;
+}
+.likes span{
+    color:rgb(91, 112, 131);
+}

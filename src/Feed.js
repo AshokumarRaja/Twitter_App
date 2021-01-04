@@ -1,10 +1,12 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import './Feed.css'
 import './TweetBox'
 import Star from '@material-ui/icons/StarBorderRounded'
 import TweetBox from './TweetBox'
 import Post from './Post'
-const Feed = () => {
+
+const Feed = ({posts}) => {
+    
     return (
         <div id="feed">
            <div id="header">
@@ -12,11 +14,21 @@ const Feed = () => {
                 <Star />
            </div>
            <TweetBox/>
-           <Post/>
-           <Post/>
-           <Post/>
-           <Post/>
-           <Post/>
+           {  
+               posts.map((post)=>{
+               
+                  return <Post key= {post.id} name={post.name} username={post.username} like={post.like} img={post.image} content={post.content} comments={post.comment} id={post.id} likedBy={post.likedBy} commentCount={post.commentCount}/>
+               })
+            //    :(
+            //        <div className="empty">
+            //            <h3>Welcome to Twitter!</h3>
+            //            <p>This is the best place to see what’s happening in your world. Find some people and<br/> topics to follow now.</p>
+                       
+            //         </div>
+            //    )
+           }
+           
+           
         </div>
     )
 }

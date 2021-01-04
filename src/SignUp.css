@@ -1,6 +1,6 @@
 .modal {
     display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
+  position: absolute;
     z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left:0;
@@ -15,20 +15,25 @@
     padding: 20px;
     border-radius: 20px;
     margin-bottom: 20px;
-    width: 400px;
+    width: 95%;
     outline: none;
-   
+    margin-left: 10px;
+   box-sizing: border-box;
   }
   .twitter_icon{
   
-  display: inline-block !important;
-  margin-left: 220px;
-  font-size: 35px !important;
+  display: block !important;
+   margin-left: auto;
+   margin-right: auto;
+  font-size: 40px !important;
   color:#50b7f5;
- 
-
 
   }
+  input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
   #submit{
     box-sizing: border-box;
   
@@ -38,8 +43,10 @@
     cursor: pointer;
     border: none;
     outline: none;
-    width: 94%;
+   
     padding: 20px;
+    margin-left: 10px;
+    width: 95%;
   }
   
   /* Modal Content */
@@ -54,6 +61,7 @@
   .form h2{
       margin-top: 20px;
       margin-bottom: 20px;
+      margin-left: 20px;
   }
   
   /* The Close Button */
@@ -69,4 +77,9 @@
     color: #000;
     text-decoration: none;
     cursor: pointer;
+  }
+  @media only screen and (max-width: 1050px) {
+    .modal-content{
+      width: 50%;
+    }
   }

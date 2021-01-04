@@ -1,21 +1,25 @@
 .widgets{
-    flex: 0.5;
     padding: 10px;
-    overflow-y: hidden;
-    height: 100%;
     
+  
+    height: 100%;
+    position: fixed;
+  
 }
 
+.widgets_list{
+    flex: 4;
+    
+}
 .widgets__input{
     display: flex;
     align-items: center;
     background-color: #e3e6f0;
-    padding: 8px;
+    padding: 10px;
     border-radius: 20px;
-   
+    width: 310px;
     margin-left: 10px;
-    position: sticky;
-    top:0;
+  
    
 }
 .widgets__input  input{
@@ -31,13 +35,18 @@
   
 }
 .widgets_widgetContainer{
-    margin-top: 15px;
+   
+    margin-top: 5px;
     margin-left: 20px;
-    padding: 20px;
+    padding: 10px;
     background-color: #f5f8fa;
     border-radius: 20px;   
     height: 100%;
-    overflow-y: scroll;
+  
+  
+    width: 300px;
+   
+   
 }
 
 .widgets_widgetContainer::-webkit-scrollbar {
@@ -51,6 +60,7 @@
 .widgets_widgetContainer >h2{
     font-size: 20px;
     font-weight: 800;
-   padding-bottom: 5px;
+    margin: 10px;
+    padding-bottom: 5px;
    
 }

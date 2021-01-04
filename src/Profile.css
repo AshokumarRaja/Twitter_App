@@ -1,0 +1,89 @@
+.arrow{
+    color: #50b7f5;
+}
+#header1{
+display: flex;
+  padding: 10px !important;
+  border-bottom: 1px solid #e6e3f0;
+  align-items: center;
+  position: sticky;
+  top:0;
+  background-color: white;
+  z-index: 1000;
+}
+.person_icon_hide{
+  z-index: 1;
+}
+.head{
+  margin-left: 30px;
+  background-color: white;
+}
+.head p{
+  color: lightgray;
+  text-align: center;
+  margin-top: 1px;
+  margin-left: -10px;
+}
+#background_img{
+  
+  width: 100%;
+  height: 200px;
+  background-color: lightgray;
+  z-index: 10000;
+  
+}
+.icon_button{
+  background-color: transparent;
+  color:white;
+}
+.show{
+  
+  margin-top: 70px;
+color:rgba(29,161,242,1.00);;
+ margin-left: 350px;
+}
+.profile_img2{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+.profile_img1{
+  width: 100%;
+  height: 200px;
+  position: relative;
+  left: 0px;
+
+}
+.profile_img{
+  font-size: 150px !important;
+   margin-top: -100px;
+  margin-left: 5px;
+  border: none !important;
+  outline: none !important;
+  z-index: 1;
+ 
+ color: #50b7f5;
+
+}
+.names{
+  margin-top: -10px;
+  margin-left: 15px;
+  
+}
+.tweets{
+  text-align: center;
+  margin-top: 20px;
+  color: #50b7f5;
+ 
+  border-bottom: 1px solid #e6e3f0;
+  
+}
+.tweets h3{
+  margin-bottom: 10px;
+}
+.names p{
+  margin-left: -3px;
+  margin-top: 0px;
+  color: rgb(91, 112, 131);
+}
+

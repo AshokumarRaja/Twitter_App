@@ -1,36 +1,36 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import SidebarOption from './SidebarOption'
 import TwitterIcon from '@material-ui/icons/Twitter'
 import Home from '@material-ui/icons/Home'
-import Explore from '@material-ui/icons/Explore'
 import Notification from '@material-ui/icons/NotificationsNone'
-import Message from '@material-ui/icons/MailOutline'
-import BookMark from '@material-ui/icons/BookmarkBorder'
-import List from '@material-ui/icons/ListAlt'
 import Profile from '@material-ui/icons/PermIdentity'
-import More from '@material-ui/icons/MoreHorizOutlined'
+import Logout from '@material-ui/icons/MoreHorizRounded'
 import './sidebar.css'
-import Feed from './Feed'
-import Widgets from './Widgets'
+import {useHistory} from 'react-router-dom';
+import firebase from './firebase'
 const Sidebar = () => {
+    let history = useHistory();
+    const[path,setPath]=useState("");
+    useEffect(() => {
+        setPath(history.location.pathname)
+    }, [])
+   
     return (
-        <div className="app">
+        
             <div className="sidebar" >
+                <div className="sidebar1">
                 <TwitterIcon className="twiiterIcon" />
-                <SidebarOption active Icon={Home} text="Home" />
-                <SidebarOption Icon={Explore} text="Explore" />
-                <SidebarOption Icon={Notification} text="Notifications" />
-                <SidebarOption Icon={Message} text="Message" />
-                <SidebarOption Icon={BookMark} text="BookMark" />
-                <SidebarOption Icon={List} text="List" />
-                <SidebarOption Icon={Profile} text="Profile" />
-                <SidebarOption Icon={More} text="More" />
-                <button className="tweet">Tweet</button>
+                <SidebarOption active={path=="/home"?true:false} Icon={Home} text="Home" path="/home"  />
+                <SidebarOption active={path=="/notification"?true:false} Icon={Notification} text="Notifications" path="/notification"/>
+                <SidebarOption active={path=="/profile"?true:false} Icon={Profile} text="Profile" path="/profile" />
+                <SidebarOption  Icon={Logout} text="Logout"  />
+                </div>
+               
+               
             </div>
-            <Feed/>
-            <Widgets/>
-        </div>
+           
     )
 }
 
 export default Sidebar
+ 

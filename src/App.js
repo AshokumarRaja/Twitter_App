@@ -1,19 +1,28 @@
 import './App.css';
-import Sidebar from './Sidebar'
-import SignUp from './SignUp'
 import Login from './Login'
-import {BrowserRouter as Router,Route,Switch,Link} from 'react-router-dom'
+import {BrowserRouter as Router,Route,Switch,Link, Redirect} from 'react-router-dom'
+import Home from './FullPage'
+import ProtectedRoute from './ProtectedRoute'
+import PublicRoute from './PublicRoute';
+import createBrowserHistory from 'history/createBrowserHistory'
+import Notification from './Notification'
+import Profile from './Profile'
+import ViewMessage from './ViewMessage'
+
+const history=createBrowserHistory();
 function App() {
   return (
     <div >
-      <Router>
+      <Router history={history}>
+        
         <Switch>
-          <Route path="/" exact component={Login}/>
-         
-          <Route path="/home" component={Sidebar}/>
+        <PublicRoute exact path="/" component={Login} />   
+        <ProtectedRoute exact={true} path="/home" component={Home} /> 
+        <ProtectedRoute exact path="/profile" component={Profile}/>
+        <ProtectedRoute exact path="/notification" component={Notification}/>
+        <ProtectedRoute  path="/posts/:id" component={ViewMessage}/>
         </Switch>
-      </Router>
-    
+      </Router> 
     </div>
   );
 }
