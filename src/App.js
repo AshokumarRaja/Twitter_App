@@ -8,8 +8,8 @@ import createBrowserHistory from 'history/createBrowserHistory'
 import Notification from './Notification'
 import Profile from './Profile'
 import ViewMessage from './ViewMessage'
-
-const history=createBrowserHistory();
+import UserProfile from './UserProfile'
+export const history=createBrowserHistory();
 function App() {
   return (
     <div >
@@ -21,6 +21,7 @@ function App() {
         <ProtectedRoute exact path="/profile" component={Profile}/>
         <ProtectedRoute exact path="/notification" component={Notification}/>
         <ProtectedRoute  path="/posts/:id" component={ViewMessage}/>
+        <ProtectedRoute  path="/profile/:id" component={UserProfile}/>
         </Switch>
       </Router> 
     </div>

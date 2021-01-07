@@ -9,12 +9,12 @@ import Upload from '@material-ui/icons/PublishRounded'
 import './Post.css'
 import firebase from './firebase'
 import Modal from 'react-modal'
+import FavouriteCircle from '@material-ui/icons/FavoriteRounded'
 
 import {useHistory} from 'react-router-dom'
-const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount}) => {
-    console.log(likedBy,like,id)
+const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount,index,length},props) => {
+ 
     let history = useHistory();
-    
   const[show,setShow]=useState(false)
   const[comment,setComment]=useState("");
   const[name1,setName]=useState("");
@@ -22,6 +22,8 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount})
   const[Profile,setProfile]=useState("");
   const[Profile1,setProfile1]=useState("");
   const[Profile2,setProfile2]=useState("");
+  const[Length,setLength]=useState("");
+  const[userid,setId]=useState("");
     const customStyles = {
         overlay: {
           
@@ -51,21 +53,25 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount})
     var key;
     const email=  JSON.parse(localStorage.getItem("firebase:authUser:AIzaSyAkUiaMAotBOT7GJHblVk2gC9h37myNPiY:[DEFAULT]")).email;
     useEffect(()=>{
-        firebase.database().ref('/regusers').orderByChild('email').equalTo(email).once('value',(snap)=>{
-            snap.forEach((snap)=>{
+        firebase.database().ref('/regusers').orderByChild('email').equalTo(email).once('value',async(snap)=>{
+          await  snap.forEach((snap)=>{
                 setProfile1(snap.val().profileImg)
                 setName(snap.val().name);
                 setUserName(snap.val().username)
+               
             })
         })
-        firebase.database().ref('/regusers').orderByChild('username').equalTo(username).once('value',(snap)=>{
-            snap.forEach((snap)=>{
+        firebase.database().ref('/regusers').orderByChild('username').equalTo(username).once('value',async(snap)=>{
+           await snap.forEach((snap)=>{
                 setProfile(snap.val().profileImg);
+                setId(snap.val().id)
                 
             })
         })
-    },[Profile,Profile1])
-    console.log(username)
+       
+       
+      
+    },[Profile,Profile1,likedBy,length])
     const Like=(cls)=>{
          
       const val= firebase.database().ref(`posts/${id}/likedBy`).once('value',(snap)=>{
@@ -83,6 +89,7 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount})
                 liked =  liked.replace(username1,"");
             }
             firebase.database().ref(`posts/${id}/likedBy`).set(liked);
+            
         }
         else{
            
@@ -97,8 +104,11 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount})
             firebase.database().ref(`posts/${id}`).update({
                 "like":like+1
             })
+          
         }
+       
       }); 
+        history.push('/');
           
     }
     const reply=()=>{
@@ -130,11 +140,25 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount})
             pathname:`/posts/${id}`,
             state:{
                 username:username,
+               
+                likedBy:likedBy,
                 id:id
             }
         })
        }
     }
+    const goProfile=()=>{
+        if( history.location.pathname="/home"  ){
+            history.push({
+                pathname:`/profile/${userid}`,
+                state:{
+                    
+                    id:userid
+                }
+            })
+           }
+    }
+    
     return (
         
         <div className="post">
@@ -143,9 +167,9 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount})
             {
                     Profile=="" ?
                   
-                    <Person className="person1" />
+                    <Person className="person1"onClick={goProfile} />
                     :
-                    <img src={Profile} className="person1 view_msg"  />
+                    <img src={Profile} className="person1 view_msg" onClick={goProfile}  />
                   }
             </div>
             <div className="post_body">
@@ -169,9 +193,13 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount})
                   
                     </div>
                     <div id="like">
-                    <Favourite onClick={ Like} className="likeIcon"  /> <span >{like!=0 ? like:""}</span>
-                    </div>
+                    {likedBy.includes(username1)?
+                    <div className="likeIcon"> <FavouriteCircle onClick={ Like}   />{like!=0 ? like:""}</div>
                   
+                    :
+                    <div> <Favourite onClick={ Like}  /> <span >{like!=0 ? like:""}</span></div>
+                    }
+                     </div>
                 </div>
             </div>
             

@@ -7,7 +7,7 @@ const Widgets = () => {
     return (
         <div className="widgets_list">
         <div className="widgets">
-           
+         
            <div className="widgets_widgetContainer">
               
                     <h2>What's happening</h2>

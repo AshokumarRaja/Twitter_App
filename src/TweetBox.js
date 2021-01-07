@@ -28,8 +28,8 @@ const TweetBox = (props) => {
     const[Profile,setProfile]=useState("");
     const uid=  JSON.parse(localStorage.getItem("firebase:authUser:AIzaSyAkUiaMAotBOT7GJHblVk2gC9h37myNPiY:[DEFAULT]")).uid;
     useEffect(() => {
-      firebase.database().ref('regusers').orderByChild('id').equalTo(uid).on('value',(snap)=>{
-          snap.forEach((s)=>{
+      firebase.database().ref('regusers').orderByChild('id').equalTo(uid).on('value',async(snap)=>{
+         await snap.forEach((s)=>{
             setProfile(s.val().profileImg)
               setId(s.key);
               setName(s.val().name);
@@ -62,7 +62,8 @@ const TweetBox = (props) => {
                 like:0,
                 comments:'',
                 likedBy:"",
-                commentCount:0
+                commentCount:0,
+                id:uid,
             })
             firebase.database().ref(`regusers/${id}`).update({
               "posts":count+1
@@ -81,7 +82,8 @@ const TweetBox = (props) => {
                 like:0,
                 comments:'',
                 likedBy:"",
-                commentCount:0
+                commentCount:0,
+                id:uid
             })
             
             console.log(count);
@@ -102,7 +104,7 @@ const TweetBox = (props) => {
     const routeChange=()=>{
       history.push('/profile')
     }
-    
+   
     return (
         <div className="tweet_box">
             <form>

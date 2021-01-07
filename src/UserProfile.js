@@ -11,6 +11,7 @@ import IconButton from "@material-ui/core/IconButton";
 import { FaUser, FaUserCircle,FaPlus } from 'react-icons/fa';
 import PhotoCamera from "@material-ui/icons/Image";
 import Posts from './Post'
+import {useLocation} from 'react-router-dom'
 const useStyles = makeStyles((theme) => ({
     root: {
       
@@ -26,7 +27,9 @@ const useStyles = makeStyles((theme) => ({
       display: "none"
     }
   }));
-const Profile = () => {
+const UserProfile = () => {
+    const location=useLocation();
+
     let image;
     const classes = useStyles();
     let history = useHistory();
@@ -36,7 +39,6 @@ const Profile = () => {
     const[Profile1,setProfile1]=useState("");
     const[count,setCount]=useState(0);
     const[userName,setUserName]=useState("");
-    const[Mobile,setMobile]=useState("");
     const[Post,setPosts]=useState([]);
     const[name,setName]=useState("");
     const [url,setUrl]=useState("");
@@ -44,7 +46,7 @@ const Profile = () => {
     const[postCount,setPostCount]=useState("");
    const[count1,setCount1]=useState(0);
     useEffect(() => {
-        firebase.database().ref('regusers').orderByChild('email').equalTo(email).on('value',async (snap)=>{
+        firebase.database().ref('regusers').orderByChild('id').equalTo(location.state.id).on('value',async (snap)=>{
            await snap.forEach((s)=>{
                 setId(s.key)
                 setProfile1(s.val().profileImgBackdrop)
@@ -53,7 +55,6 @@ const Profile = () => {
                setUserName(s.val().username)
                setName(s.val().name);
                setPostCount(s.val().Posts)
-               setMobile(s.val().mobile)
                firebase.database().ref(`posts`).orderByChild('username').equalTo(s.val().username).once('value',async(snap)=>{
                     setPosts([]);
                await snap.forEach((s)=>{
@@ -119,7 +120,7 @@ const Profile = () => {
         
          
        }
-       
+     
     return (
         <div className="app" onClick={()=>setCount1(count1+1)}>
            <Sidebar/>
@@ -161,7 +162,6 @@ const Profile = () => {
                <div className="names">
                     <h3>{name}</h3>
                     <p>{userName}</p>
-                  <p>+91-{Mobile}</p>
                 </div>
                 <div className="tweets">
                     <h3>Tweets &amp; Replies</h3>
@@ -179,4 +179,4 @@ const Profile = () => {
     )
 }
 
-export default Profile
+export default UserProfile

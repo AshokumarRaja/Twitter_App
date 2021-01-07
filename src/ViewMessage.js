@@ -19,18 +19,18 @@ const ViewMessage = ({match}) => {
     const[profileImg,setProFileImg]=useState("")
     let Profile="";
     useEffect(() => {
-        firebase.database().ref(`posts/${location.state.id}`).once('value',(snap)=>{
-                  setPosts(snap.val())
+        firebase.database().ref(`posts/${location.state.id}`).once('value',async (snap)=>{
+                await  setPosts(snap.val())
         })
-        firebase.database().ref(`posts/${location.state.id}/comments`).once('value',(snap)=>{
+        firebase.database().ref(`posts/${location.state.id}/comments`).once('value',async(snap)=>{
             setComments([])
-            snap.forEach((snap)=>{
+         await   snap.forEach((snap)=>{
 
                 var pimage = "";
                
-                firebase.database().ref(`/regusers`).orderByChild('username').equalTo(snap.val().username).once('value',(snapshot)=>{
+                firebase.database().ref(`/regusers`).orderByChild('username').equalTo(snap.val().username).once('value',async (snapshot)=>{
                    
-                    snapshot.forEach((s)=>{
+                 await   snapshot.forEach((s)=>{
                         setComments(prevState=>[...prevState,{comment:snap.val().comments,name:snap.val().name,username:snap.val().username,profileImg:s.val().profileImg}])
                         return;
                          // setProFileImg(s.val().profileImg)
@@ -60,7 +60,7 @@ const ViewMessage = ({match}) => {
             <Arrow className="arrow" onClick={()=>history.push('/home')} style={{cursor:"pointer"}}/>
                 <h2 id="home1 view_msg_home" style={{marginLeft:"10px"}}>Tweet</h2>
            </div>
-            <Post key= {posts.username} name={posts.name} username={location.state.username} like={posts.like} img={posts.image} content={posts.content} comments={posts.comment} id={id} likedBy={posts.likedBy} commentCount={posts.commentCount} />     
+            <Post key= {posts.username} name={posts.name} username={location.state.username} like={posts.like} img={posts.image} content={posts.content} comments={posts.comment} id={id} likedBy={location.state.likedBy} commentCount={posts.commentCount}  />     
             
            {
                comments1.map((comment)=>{

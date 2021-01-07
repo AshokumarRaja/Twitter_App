@@ -5,24 +5,26 @@ import Widgets from './Widgets'
 import firebase from './firebase';
 const FullPage = () => {
     const[posts,setPosts]=useState([]);
+   
     useEffect(() => {
-        firebase.database().ref('/posts').on('value',(snapshot)=>{
+        firebase.database().ref('/posts').on('value',async(snapshot)=>{
            
             setPosts([]);
-           snapshot.forEach((snap)=>{  
-            {console.log(snap.val().commentCount)} 
+         await  snapshot.forEach((snap)=>{  
+           
                setPosts(prevState=>[...prevState,({id:snap.key,commentCount:snap.val().commentCount,name:snap.val().name,username:snap.val().username,comment:snap.val().comments,image:snap.val().image,like:snap.val().like,email:snap.val().email,content:snap.val().content,likedBy:snap.val().likedBy})])
            })
         })
+      
        
-    }, [])
-    console.log(posts)
+    }, [posts.likedBy]);
+    
     return (
         
-            <div className="app">
+            <div className="app" >
             <Sidebar/>
            
-            <Feed posts={posts}/>
+            <Feed posts={posts} />
           
             <Widgets/>
        

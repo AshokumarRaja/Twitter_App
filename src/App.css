@@ -2,19 +2,17 @@
     display: flex;
     width: 90%;
     margin: 0 auto;
-    height: 100vh; 
+    height: 100vmax; 
    
 }
-@media screen and (max-width: 1320px) {
-    .widgets{
-      display: none;
-    }
-    .other{
-        margin-left: auto;
-    }
+@media  (max-width: 1320px) {
     
+  
+    .widgets_list{
+      display: none;
+    }  
   }
-  @media screen and (max-width: 970px) {
+  @media screen and (max-width: 960px) {
     .SidebarOption h2,.logout1 button{
       display: none;
     }
@@ -22,3 +20,4 @@
     
     
   }
+  

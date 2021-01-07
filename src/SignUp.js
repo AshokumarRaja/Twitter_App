@@ -26,7 +26,9 @@ const SignUp = (props) => {
             email:email.toLowerCase(),
             password,
             mobile,
-            posts:0
+            posts:0,
+            profileImg:"",
+            profileImgBackdrop:""
         }).then(()=>{
             document.getElementById("myModal").style.display="none";
             

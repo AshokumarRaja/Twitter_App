@@ -5,6 +5,16 @@
     margin-top: 20px;
    
 }
+.notification_count{
+    background-color: #50b7f5;
+    color: white;
+    padding: 3px 4px;
+    border-radius: 30px;
+    position: absolute;
+    left: 30px;
+    top:158px;
+}
+
 .SidebarOption > .MuiSvgIcon-root{
     padding: 15px; 
     font-size: 25px!important;

@@ -2,7 +2,8 @@ import React from 'react'
 import './SidebarOption.css'
 import {useHistory} from 'react-router-dom'
 import firebase from './firebase'
-const SidebarOption = ({active,text,Icon,path}) => {
+const SidebarOption = ({active,text,Icon,path,count}) => {
+    var tag;
     const logout=()=>{
         firebase.auth().signOut().then(() => {
             localStorage.setItem("auth-token","");
@@ -12,12 +13,15 @@ const SidebarOption = ({active,text,Icon,path}) => {
           }); console.log("logout");
           
     }
+   if(count){
+       tag=<p className="notification_count">{count}</p>
+   }
     let history = useHistory();
     return (
         <div className={`SidebarOption ${active && "sidebar--active"}` } onClick={()=>history.push(path)}>
-           
-            <Icon/>
-            <h2 onClick={text=="Logout" ? logout:""}>{text}</h2>
+                {tag}
+            <Icon  />
+            <h2  onClick={text=="Logout" ? logout:""}>{text}</h2>
            
            
         </div>

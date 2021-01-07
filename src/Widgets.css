@@ -1,14 +1,15 @@
 .widgets{
     padding: 10px;
-    
-  
-    height: 100%;
+   
+    border-left: 1px solid #e3e6f0;
+    height: 100vmax;
     position: fixed;
   
 }
 
 .widgets_list{
-    flex: 4;
+    flex: 3;
+   
     
 }
 .widgets__input{
