@@ -39,6 +39,7 @@ const UserProfile = () => {
     const[Profile1,setProfile1]=useState("");
     const[count,setCount]=useState(0);
     const[userName,setUserName]=useState("");
+    const[Mobile,setMobile]=useState("");
     const[Post,setPosts]=useState([]);
     const[name,setName]=useState("");
     const [url,setUrl]=useState("");
@@ -55,6 +56,7 @@ const UserProfile = () => {
                setUserName(s.val().username)
                setName(s.val().name);
                setPostCount(s.val().Posts)
+               setMobile(s.val().mobile)
                firebase.database().ref(`posts`).orderByChild('username').equalTo(s.val().username).once('value',async(snap)=>{
                     setPosts([]);
                await snap.forEach((s)=>{
@@ -162,6 +164,7 @@ const UserProfile = () => {
                <div className="names">
                     <h3>{name}</h3>
                     <p>{userName}</p>
+                    <p>+91-{Mobile}</p>
                 </div>
                 <div className="tweets">
                     <h3>Tweets &amp; Replies</h3>

@@ -4,11 +4,12 @@
     border-left: 1px solid #e3e6f0;
     height: 100vmax;
     position: fixed;
+    width: inherit;
   
 }
 
 .widgets_list{
-    flex: 3;
+    width: 20vw;
    
     
 }
@@ -43,9 +44,9 @@
     background-color: #f5f8fa;
     border-radius: 20px;   
     height: 100%;
+  width: inherit;
   
-  
-    width: 300px;
+   
    
    
 }

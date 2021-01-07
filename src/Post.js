@@ -13,7 +13,7 @@ import FavouriteCircle from '@material-ui/icons/FavoriteRounded'
 
 import {useHistory} from 'react-router-dom'
 const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount,index,length},props) => {
- 
+ var liked;
     let history = useHistory();
   const[show,setShow]=useState(false)
   const[comment,setComment]=useState("");
@@ -22,6 +22,7 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount,i
   const[Profile,setProfile]=useState("");
   const[Profile1,setProfile1]=useState("");
   const[Profile2,setProfile2]=useState("");
+  var LikedOne="";
   const[Length,setLength]=useState("");
   const[userid,setId]=useState("");
     const customStyles = {
@@ -78,7 +79,7 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount,i
      
         if(snap.val().includes(username1)){
             
-            var liked=snap.val();
+             liked=snap.val();
             firebase.database().ref(`posts/${id}`).update({
                 "like":like-1
             })
@@ -88,6 +89,8 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount,i
             else{
                 liked =  liked.replace(username1,"");
             }
+           
+            LikedOne=liked;
             firebase.database().ref(`posts/${id}/likedBy`).set(liked);
             
         }
@@ -100,6 +103,7 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount,i
             else{
                 liked+=","+username1;
             }
+           LikedOne=liked;
             firebase.database().ref(`posts/${id}/likedBy`).set(liked)
             firebase.database().ref(`posts/${id}`).update({
                 "like":like+1
@@ -108,8 +112,20 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount,i
         }
        
       }); 
-        history.push('/');
-          
+     
+      if( history.location.pathname==`/posts/${id}`  ){
+        history.push({
+            pathname:`/posts/${id}`,
+            state:{
+                username:username,
+                username1:username1,
+               
+                likedBy:LikedOne,
+                id:id
+            }
+        })
+       }
+          history.push('/');
     }
     const reply=()=>{
         if(comment.length!=0){
@@ -135,11 +151,12 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount,i
         setShow(false);
     }
     const changeRoute=()=>{
-       if( history.location.pathname="/home"  ){
+       if( history.location.pathname=="/home"  ){
         history.push({
             pathname:`/posts/${id}`,
             state:{
                 username:username,
+                username1:username1,
                
                 likedBy:likedBy,
                 id:id
@@ -158,7 +175,7 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount,i
             })
            }
     }
-    
+   
     return (
         
         <div className="post">
@@ -193,7 +210,9 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount,i
                   
                     </div>
                     <div id="like">
-                    {likedBy.includes(username1)?
+                  
+                    {likedBy.includes(username1) || likedBy.includes(username) ?
+                  
                     <div className="likeIcon"> <FavouriteCircle onClick={ Like}   />{like!=0 ? like:""}</div>
                   
                     :

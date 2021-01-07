@@ -1,7 +1,7 @@
 .sidebar{
    
    
-    flex: 2;
+   width: 15vw;
   
     
    
@@ -14,7 +14,7 @@
     padding-right: 16px;
     padding-top: 15px;
     position: fixed;
-    flex:3;
+   width: inherit;
     height: 100vmax;
     border-right: 1px solid #e6ecf0;
 }

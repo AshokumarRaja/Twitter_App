@@ -5,19 +5,127 @@
     height: 100vmax; 
    
 }
-@media  (max-width: 1320px) {
+@media  (max-width: 1270px)  {
     
   
-    .widgets_list{
-      display: none;
+    .SidebarOption h2{
+    display: none;
     }  
-  }
-  @media screen and (max-width: 960px) {
-    .SidebarOption h2,.logout1 button{
-      display: none;
+    .tweet_box {
+      width: 100% !important;
+      padding: 0 !important;
+      
+    }
+    
+    .tweet_box_input >input{
+        font-size: 15px !important;
+    }
+    .tweet_box >form{
+      justify-content: space-evenly;
+    }
+    .other{
+      display: flex  !important;
+      justify-content: flex-start !important;
     }
    
+   .sidebar {
+       width: 5vw!important;
+   }
+   #feed{
+     width: 55vw !important;
+   }
+   .widgets_list{
+     width: 23vw !important;
+   }
+  }
+  @media  (max-width: 960px) and (min-width:750px){
+    .widgets_widgetContainer{
+     display: none !important;
+    }
+    .sidebar{
+      width: 5vw !important;
+    }
+    #feed{
+      width: 70vw !important;
+      margin-left: 60px !important;
+    }
+  }
+  @media  (max-width: 490px)  {
+    .sidebar{
+     
+      display: none !important;
+    }
+    .SidebarOption {
+      display: none !important;
+    }
+    #feed{
+      width: 98vw !important;
+     margin-left: -15px !important;
+    }
+    .widgets{
+      
+      display: none !important;
+    }
     
+    .view_msg{
+      width: 30px !important;
+      height: 30px !important;
+    }
+    
+     #like{
+       margin-right: 50px !important;
+     }
+     .tweet_box >form{
+      display: flex !important;
+      flex-direction: column !important;
+     
+    }
+    .widgets_widgetContainer{
+      display: none !important;
+     }
+     .other{
+      margin-left: auto;
+      margin-right: auto;
+     }
+    
+     
+  }
+  
+  @media  (max-width:750px) and (min-width:490px) {
+    .sidebar{
+      width: 7vw !important;
+    }
+    .tweet_box >form{
+      display: flex !important;
+      flex-direction: column !important;
+     
+    }
+    #feed{
+      width: 60vw !important ;
+      margin-left: 48px !important;
+    }
+    .SidebarOption h2 {
+      display: none !important;
+    }
+    
+    .widgets_widgetContainer{
+      display: none !important;
+     }
+     .other{
+      margin-left: auto;
+      margin-right: auto;
+     }
+   
+   
+    .view_msg{
+      width: 30px !important;
+      height: 30px !important;
+    }
+     
+     #like{
+       margin-right: 50px !important;
+     }
     
   }
+  
   

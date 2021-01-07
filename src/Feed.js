@@ -17,7 +17,7 @@ const Feed = ({posts}) => {
            <TweetBox/>
            {  
                posts.map((post,index)=>{
-              
+            
                   return <Post key= {post.id} name={post.name} username={post.username} like={post.like} img={post.image} content={post.content} comments={post.comment} id={post.id} likedBy={post.likedBy} commentCount={post.commentCount} index={index} length={posts.length}/>
                })
             //    :(

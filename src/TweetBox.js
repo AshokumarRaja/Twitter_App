@@ -119,14 +119,14 @@ const TweetBox = (props) => {
                     <input type="text" placeholder="what's happening?" value={content} onChange={(e)=>setContent(e.target.value)}/>
                </div>
                <div className="other">
-                <div className="icons">
-                <input accept="image/*" className={classes.input} id="icon-button-file" type="file" onChange={handleChange}/>
-                <label htmlFor="icon-button-file"  >
-                    <IconButton color="primary" aria-label="upload picture" component="span"  style={{backgroundColor:"transparent",color:"white"}} ><PhotoCamera className="Gif" /></IconButton>
-                </label>
-               </div>
-               <Smiley className="Gif1"/>
-                 <button className="tweet_button" onClick={Post}>Tweet</button>
+                <div >
+                  <input accept="image/*" className={classes.input} id="icon-button-file" type="file" onChange={handleChange}/>
+                  <label htmlFor="icon-button-file"  >
+                      <IconButton color="primary" aria-label="upload picture" component="span"  style={{backgroundColor:"transparent",color:"white"}} ><PhotoCamera className="Gif" /></IconButton>
+                  </label>
+                </div>
+                  
+                    <button className="tweet_button" onClick={Post}>Tweet</button>
                </div>
             </form>
         </div>

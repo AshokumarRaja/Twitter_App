@@ -1,3 +1,4 @@
+
 .person{
     font-size: 60px !important;
     cursor: pointer;
@@ -5,10 +6,13 @@
 .tweet_box{
     padding-bottom: 10px;
     padding-right: 10px;
+    margin-top: 50px;
     border-bottom: 8px solid  #e6ecf0;
+
 }
 .tweet_box >form{
     display: flex;
+    justify-content: space-between;
    
 }
 .tweet_box_input{
@@ -41,7 +45,8 @@
 
 .other{
     display: flex;
-    margin-left: auto;
+   
+  
     
 }
 .tweet_box_input >input{
@@ -63,5 +68,7 @@
     color: white;
     border: none;
     margin-top: 32px;
-    outline:none
+    outline:none;
+   
+
 }

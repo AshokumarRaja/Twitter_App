@@ -47,7 +47,7 @@ const ViewMessage = ({match}) => {
         
     }, [count])
     
-   console.log(comments1)
+   console.log(location.state)
     
 
     return (
