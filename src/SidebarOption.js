@@ -21,7 +21,7 @@ const SidebarOption = ({active,text,Icon,path,count},props) => {
     return (
         <div className={`SidebarOption ${active && "sidebar--active"}` } onClick={()=>history.push(path)}>
                 {tag}
-            <Icon  />
+            <Icon onClick={text=="Logout" ? logout:""} />
             <h2  onClick={text=="Logout" ? logout:""}>{text}</h2>
            
            
