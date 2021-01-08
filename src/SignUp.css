@@ -2,7 +2,7 @@
     display: none; /* Hidden by default */
   position: absolute;
     z-index: 1; /* Sit on top */
-    padding-top: 30px; /* Location of the box */
+    padding-top: 70px; /* Location of the box */
     left:0;
     top: 0;
     width: 100%; 
@@ -15,7 +15,7 @@
     padding: 20px;
     border-radius: 20px;
     margin-bottom: 20px;
-    width: 95%;
+    width: 80%;
     outline: none;
     margin-left: 10px;
    box-sizing: border-box;
