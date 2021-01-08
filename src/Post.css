@@ -25,8 +25,9 @@ color:#50b7f5
 }
 .likeIcon{
     color:rgb(224, 36, 94);
-    margin-right: -10px;
+    margin-right: 150px;
 }
+
 .post_footer{
     display: flex;
     justify-content: space-between;

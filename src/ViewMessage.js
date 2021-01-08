@@ -76,7 +76,7 @@ const ViewMessage = ({match}) => {
                     :
                     <img src={comment.profileImg} className="person1 view_msg"  />
                   }
-                            <p className="name" >{comment.name}<span>{comment.username}</span></p>
+                            <p className="name" >{comment.name}<span style={{marginLeft:"1px"}}>{comment.username}</span></p>
                             
                         </div>
                         <div className="msg_content">

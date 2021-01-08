@@ -125,6 +125,9 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount,i
             }
         })
        }
+       if(history.location.pathname=="/home"){
+        history.push("/");
+    }
        
     }
     const reply=()=>{
@@ -163,6 +166,7 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount,i
             }
         })
        }
+      
     }
     const goProfile=()=>{
         if( history.location.pathname="/home"  ){
@@ -209,14 +213,14 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount,i
                     <div>
                   
                     </div>
-                    <div id="like">
+                    <div >
                   
                     {likedBy.includes(username1) ?
                   
-                    <div className="likeIcon"> <FavouriteCircle onClick={ Like}   />{like!=0 ? like:""}</div>
+                    <div className="likeIcon" > <FavouriteCircle onClick={ Like}   />{like}</div>
                   
                     :
-                    <div> <Favourite onClick={ Like}  /> <span >{like!=0 ? like:""}</span></div>
+                    <div id="like" > <Favourite onClick={ Like}  /><span  >{like}</span></div>
                     }
                      </div>
                 </div>
