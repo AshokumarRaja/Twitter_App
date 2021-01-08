@@ -49,7 +49,7 @@ const Login = (props) => {
             <div className="input">
             <h2>Login In To Tweeter</h2>
                 <form onSubmit={login} autoComplete="off">
-                    <input type="email"  placeholder="phone,email, or username" name="email" value={email} onChange={(e)=>setEmail(e.target.value)} required />
+                    <input type="email"  placeholder="Enter Your email" name="email" value={email} onChange={(e)=>setEmail(e.target.value)} required />
                     <input type="password"  placeholder="Password" name="password" value={password} onChange={(e)=>setPassword(e.target.value)} autoComplete="off" required/>
                     <p style={{textAlign:"center",color:"red",marginBottom:"5px"}}>{error}</p> 
                     <button className="login" >Login</button>  
