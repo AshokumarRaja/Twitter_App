@@ -11,21 +11,25 @@ import {useHistory} from 'react-router-dom';
 import firebase from './firebase';
 
 
-const Sidebar = () => {
+const Sidebar = (props) => {
     
     let history = useHistory();
     const[path,setPath]=useState("");
     const email=  JSON.parse(localStorage.getItem("firebase:authUser:AIzaSyAkUiaMAotBOT7GJHblVk2gC9h37myNPiY:[DEFAULT]")).email;
     const[count,setCount]=useState("");
+
     useEffect(() => {
         setPath(history.location.pathname);
         firebase.database().ref('/regusers').orderByChild('email').equalTo(email).once('value',async(snap)=>{
             await snap.forEach((snap)=>{
+               
+               firebase.database().ref('/posts').orderByChild('username').equalTo(snap.val().username).on('value',async(snap)=>{
                 setCount(0);
-               firebase.database().ref('/posts').orderByChild('username').equalTo(snap.val().username).once('value',async(snap)=>{
-                  await snap.forEach((s)=>{
+                await snap.forEach((s)=>{
+
                        if(s.val().like>0){
-                           setCount(prevState=>prevState+1);
+                           setCount(prevState=>prevState+1);    
+                           
                        }
                    })
                })
@@ -35,7 +39,8 @@ const Sidebar = () => {
          
         
     }, [])
-  
+   
+
     return (
         
             <div className="sidebar" >

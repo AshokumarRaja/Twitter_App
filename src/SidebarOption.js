@@ -1,8 +1,8 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import './SidebarOption.css'
 import {useHistory} from 'react-router-dom'
 import firebase from './firebase'
-const SidebarOption = ({active,text,Icon,path,count}) => {
+const SidebarOption = ({active,text,Icon,path,count},props) => {
     var tag;
     const logout=()=>{
         firebase.auth().signOut().then(() => {
@@ -13,6 +13,7 @@ const SidebarOption = ({active,text,Icon,path,count}) => {
           }); console.log("logout");
           
     }
+    
    if(count){
        tag=<p className="notification_count">{count}</p>
    }

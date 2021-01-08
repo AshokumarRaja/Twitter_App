@@ -10,12 +10,13 @@ import './Post.css'
 import firebase from './firebase'
 import Modal from 'react-modal'
 import FavouriteCircle from '@material-ui/icons/FavoriteRounded'
-
+import Sidebar from './Sidebar'
 import {useHistory} from 'react-router-dom'
 const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount,index,length},props) => {
- var liked;
+ 
     let history = useHistory();
-  const[show,setShow]=useState(false)
+  const[show,setShow]=useState(false);
+  const[show1,setShow1]=useState(false);
   const[comment,setComment]=useState("");
   const[name1,setName]=useState("");
   const[username1,setUserName]=useState("");
@@ -25,6 +26,7 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount,i
   var LikedOne="";
   const[Length,setLength]=useState("");
   const[userid,setId]=useState("");
+  let count=0;
     const customStyles = {
         overlay: {
           
@@ -125,9 +127,6 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount,i
             }
         })
        }
-       if(history.location.pathname=="/home"){
-        history.push("/");
-    }
        
     }
     const reply=()=>{
@@ -265,6 +264,7 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount,i
 
 
             </Modal>
+         
         </div>
     )
 }

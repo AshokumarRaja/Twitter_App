@@ -19,10 +19,10 @@ const ViewMessage = ({match}) => {
     const[profileImg,setProFileImg]=useState("")
     let Profile="";
     useEffect(() => {
-        firebase.database().ref(`posts/${location.state.id}`).once('value',async (snap)=>{
+        firebase.database().ref(`posts/${location.state.id}`).on('value',async (snap)=>{
                 await  setPosts(snap.val())
         })
-        firebase.database().ref(`posts/${location.state.id}/comments`).once('value',async(snap)=>{
+        firebase.database().ref(`posts/${location.state.id}/comments`).on('value',async(snap)=>{
             setComments([])
          await   snap.forEach((snap)=>{
 
@@ -76,7 +76,7 @@ const ViewMessage = ({match}) => {
                     :
                     <img src={comment.profileImg} className="person1 view_msg"  />
                   }
-                            <p className="name" >{comment.name}<span style={{marginLeft:"1px"}}>{comment.username}</span></p>
+                            <p className="name" >{comment.name}<span style={{marginLeft:"2px"}}>{comment.username}</span></p>
                             
                         </div>
                         <div className="msg_content">
