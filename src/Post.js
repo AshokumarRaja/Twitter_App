@@ -125,9 +125,7 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount,i
             }
         })
        }
-       if(history.location.pathname=='/home'){
-          history.push('/');
-       }
+       
     }
     const reply=()=>{
         if(comment.length!=0){
@@ -213,7 +211,7 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount,i
                     </div>
                     <div id="like">
                   
-                    {likedBy.includes(username1) || likedBy.includes(username) ?
+                    {likedBy.includes(username1) ?
                   
                     <div className="likeIcon"> <FavouriteCircle onClick={ Like}   />{like!=0 ? like:""}</div>
                   
