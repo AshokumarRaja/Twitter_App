@@ -40,7 +40,7 @@ display: flex;
   
   margin-top: 70px;
 color:rgba(29,161,242,1.00);;
- margin-left: 400px;
+ margin-left: 350px;
 }
 .profile_img2{
   height: 150px;
@@ -57,12 +57,13 @@ color:rgba(29,161,242,1.00);;
 .profile_img{
   font-size: 150px !important;
    margin-top: -100px;
-  margin-left: 5px;
+  margin-left: 10px;
   border: none !important;
   outline: none !important;
   z-index: 1;
- 
- color: #50b7f5;
+ color: white;
+ background-color:#50b7f5 ;
+ border-radius: 50%;
 
 }
 .names{

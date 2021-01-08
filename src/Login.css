@@ -14,6 +14,10 @@
         display: flex;
         flex-direction: column;
   }
+  .input {
+    display: flex;
+    flex-direction: column;
+  }
   .login{
     box-sizing: border-box;
     padding:20px;
@@ -65,13 +69,23 @@
       overflow: hidden;
       background-color: #50b7f5;
   }
+  .forgetten{
+    margin-top: 10px;
+    text-align: center;
+    cursor: pointer;
+    color: #50b7f5;
+  }
   
   
   
-  @media only screen and (max-width: 1050px) {
+  @media  (max-width: 1050px) and (min-width:400px) {
    .twitter_backimg{
     display: none;
     
+   }
+   #myBtn{
+     margin-left: auto;
+     margin-right: auto;
    }
   
    
@@ -107,3 +121,14 @@
    }
 
   }
+  @media (max-width: 395px) {
+    .img{
+    display: none !important;
+    }
+   .input input,.signup,.login{
+     width: 280px !important;
+   }
+   
+
+  }
+  

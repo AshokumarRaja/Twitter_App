@@ -2,7 +2,18 @@
   width: 45vw;
   margin-left: 33px;
 }
+.empty{
+  text-align: center;
+  margin-top: 50px;
+}
+.empty h3{
+  margin-bottom: 10px;
+}
+.empty p{
+  margin-top: 10px;
+  color: darkgray;
 
+}
 
 #feed::-webkit-scrollbar {
   display: none;

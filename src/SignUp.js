@@ -1,7 +1,8 @@
 import React ,{useState}from 'react'
 import firebase from './firebase'
 import './SignUp.css'
-import TwitterIcon from '@material-ui/icons/Twitter'
+import Image from './img1/logo .png'
+
 const SignUp = (props) => {
 
     const[name,setName]=useState("");
@@ -36,6 +37,7 @@ const SignUp = (props) => {
             setEmail("");
             setMobile("");
             setPassword("");
+            setError("");
            
         })
      })
@@ -47,6 +49,11 @@ const SignUp = (props) => {
     }
     const close=()=>{
         document.getElementById("myModal").style.display="none";
+        setName("");
+        setEmail("");
+        setMobile("");
+        setPassword("");
+        setError("");
     }
     return (
         <div id="myModal" className="modal">
@@ -54,13 +61,14 @@ const SignUp = (props) => {
           <span className="close" onClick={close}>&times;</span>
           <div className="form">
            <form onSubmit={submitValue} autoComplete="off" >
-               <TwitterIcon  className="twitter_icon"/>
+           <img src={Image}   className="twitter_icon"/>
                <h2>Create Your account</h2>
               
                <input type="text"  placeholder="Enter the User Name" id="username" value={name} onChange={(e)=>setName(e.target.value)} required/><br/>
                <input type="email"  placeholder="Enter the Email" value={email} onChange={(e)=>setEmail(e.target.value)} required autoComplete="off" /><br/>
                <input type="password"  placeholder="Enter the Password" value={password} onChange={(e)=>setPassword(e.target.value)} required autoComplete="off" /><br/>
                <input type="number"  placeholder="Enter the Mobile Number" value={mobile} onChange={(e)=>{if(e.target.value.length==11) return false;setMobile(e.target.value)}} required /><br/>
+               <p style={{textAlign:"center",color:"red",marginBottom:"10px"}}>{error.message}</p>
                <button id="submit">Submit</button>
            </form>
           

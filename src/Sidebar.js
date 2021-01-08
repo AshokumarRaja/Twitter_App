@@ -1,4 +1,5 @@
 import React,{useEffect,useState} from 'react'
+import Image from './img1/logo .png'
 import SidebarOption from './SidebarOption'
 import TwitterIcon from '@material-ui/icons/Twitter'
 import Home from '@material-ui/icons/Home'
@@ -7,7 +8,8 @@ import Profile from '@material-ui/icons/PermIdentity'
 import Logout from '@material-ui/icons/MoreHorizRounded'
 import './sidebar.css'
 import {useHistory} from 'react-router-dom';
-import firebase from './firebase'
+import firebase from './firebase';
+
 
 const Sidebar = () => {
     
@@ -38,7 +40,7 @@ const Sidebar = () => {
         
             <div className="sidebar" >
                 <div className="sidebar1">
-                <TwitterIcon className="twiiterIcon" />
+                <img src={Image}  width="50px" height="50px"/>
                 <SidebarOption active={path=="/home"?true:false} Icon={Home} text="Home" path="/home"  />
                 <SidebarOption active={path=="/notification"?true:false} Icon={Notification} text="Notifications" path="/notification" count={count}/>
                 <SidebarOption active={path=="/profile"?true:false} Icon={Profile} text="Profile" path="/profile" />
