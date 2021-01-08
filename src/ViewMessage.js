@@ -52,7 +52,7 @@ const ViewMessage = ({match}) => {
 
     return (
       
-        <div onClick={()=>setCount(count+1)}>
+        <div >
             <div className="app">
             <Sidebar/>
             <div id="feed">
