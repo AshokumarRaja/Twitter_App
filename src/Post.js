@@ -113,7 +113,7 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount,i
        
       }); 
      
-      if( history.location.pathname==`/posts/${id}`  ){
+      if( history.location.pathname ==`/posts/${id}`  ){
         history.push({
             pathname:`/posts/${id}`,
             state:{
@@ -125,7 +125,9 @@ const Post = ({name,username,img,like,comments,content,id,likedBy,commentCount,i
             }
         })
        }
+       if(history.location.pathname=='/home'){
           history.push('/');
+       }
     }
     const reply=()=>{
         if(comment.length!=0){
