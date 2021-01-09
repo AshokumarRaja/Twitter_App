@@ -35,7 +35,7 @@ const ForgettenPassword = () => {
            <img src={Image}   className="twitter_icon"/>
                <h2>Forgetten Password</h2>
                 
-               <input type="text"  placeholder="Enter the Email" id="username1" value={email} onChange={(e)=>setEmail(e.target.value)} required/><br/>
+               <input type="email"  placeholder="Enter the Email" id="username1" value={email} onChange={(e)=>setEmail(e.target.value)} required/><br/>
                <p style={{textAlign:"center",color:"red",marginBottom:"10px"}}>{error.message}</p>
                <button id="submit"  >Submit</button>
            </form>
