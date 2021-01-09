@@ -1,5 +1,5 @@
-import * as firebase from 'firebase'
-import 'firebase/storage'
+import * as firebase from "firebase";
+import "firebase/storage";
 var firebaseConfig = {
   apiKey: "AIzaSyAkUiaMAotBOT7GJHblVk2gC9h37myNPiY",
   authDomain: "twitter-19942.firebaseapp.com",
@@ -8,8 +8,8 @@ var firebaseConfig = {
   storageBucket: "twitter-19942.appspot.com",
   messagingSenderId: "885295846850",
   appId: "1:885295846850:web:26f1ed981eabb8bea6b25b",
-  measurementId: "G-E726X9TNF2"
+  measurementId: "G-E726X9TNF2",
 };
 firebase.initializeApp(firebaseConfig);
-const storage=firebase.storage();
-  export {storage,firebase as default };
+const storage = firebase.storage();
+export { storage, firebase as default };
