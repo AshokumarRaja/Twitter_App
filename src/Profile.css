@@ -1,15 +1,22 @@
 .arrow{
     color: #50b7f5;
 }
+#feed1{
+  width: 45vw;
+  margin-left: 33px;
+}
 #header1{
 display: flex;
   padding: 10px !important;
   border-bottom: 1px solid #e6e3f0;
   align-items: center;
-  position: sticky;
+  position: fixed;
   top:0;
   background-color: white;
   z-index: 1000;
+}
+#background_img{
+  margin-top: 70px;
 }
 .person_icon_hide{
   z-index: 1;

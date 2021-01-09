@@ -44,6 +44,7 @@ const Notification = () => {
 
             </div>
          </div>
+         <div className="posts2">
          {Post.map((post)=>{
  
 Name=post.posts.likedBy.split(",");
@@ -96,7 +97,7 @@ console.log(Name)
          )
          
          }
-         
+         </div>
          </div>
          <Widgets/>
          </div>

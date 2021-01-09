@@ -46,8 +46,9 @@ const UserProfile = () => {
     const [burl,setBUrl]=useState("");
     const[postCount,setPostCount]=useState("");
    const[count1,setCount1]=useState(0);
+   const[count2,setCount2]=useState(0);
     useEffect(() => {
-        firebase.database().ref('regusers').orderByChild('id').equalTo(location.state.id).on('value',async (snap)=>{
+        firebase.database().ref('regusers').orderByChild('id').equalTo(location.state.id).once('value',async (snap)=>{
            await snap.forEach((s)=>{
                 setId(s.key)
                 setProfile1(s.val().profileImgBackdrop)
@@ -59,12 +60,15 @@ const UserProfile = () => {
                setMobile(s.val().mobile)
                firebase.database().ref(`posts`).orderByChild('username').equalTo(s.val().username).once('value',async(snap)=>{
                     setPosts([]);
-               await snap.forEach((s)=>{
-                  
-                    setPosts(prevState=>[...prevState,{posts:s.val(),id:s.key}])
-                        
-                    
-                })
+                    setCount2(0);
+                    await snap.forEach((s)=>{
+                       
+                         setPosts(prevState=>[...prevState,{posts:s.val(),id:s.key}])
+                         setCount2(prevState=>prevState+1);
+     
+                             
+                         
+                     })
                
        
     });
@@ -131,7 +135,7 @@ const UserProfile = () => {
                 <Arrow className="arrow" onClick={()=>history.push('/home')} />
                 <div className="head">
                     <h2 >{name}</h2> 
-                    <p>{count}Tweets</p>
+                    <p>{count2}Tweets</p>
                     </div>
             </div>
             <div id="body">
@@ -164,7 +168,7 @@ const UserProfile = () => {
                <div className="names">
                     <h3>{name}</h3>
                     <p>{userName}</p>
-                    <p>+91-{Mobile}</p>
+                    {Mobile && <p>+91-{Mobile}</p>}
                 </div>
                 <div className="tweets">
                     <h3>Tweets &amp; Replies</h3>

@@ -127,7 +127,7 @@ const Profile = () => {
     return (
         <div className="app" onClick={()=>setCount1(count1+1)}>
            <Sidebar/>
-           <div id="feed" >
+           <div id="feed1" >
             <div id="header1">
                 <Arrow className="arrow" onClick={()=>history.push('/home')} />
                 <div className="head">

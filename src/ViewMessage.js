@@ -60,6 +60,7 @@ const ViewMessage = ({match}) => {
             <Arrow className="arrow" onClick={()=>history.push('/home')} style={{cursor:"pointer"}}/>
                 <h2 id="home1 view_msg_home" style={{marginLeft:"10px"}}>Tweet</h2>
            </div>
+           <div className="posts">
             <Post key= {posts.username} name={posts.name} username={location.state.username} like={posts.like} img={posts.image} content={posts.content} comments={posts.comment} id={id} likedBy={location.state.likedBy} commentCount={posts.commentCount}  />     
             
            {
@@ -89,7 +90,7 @@ const ViewMessage = ({match}) => {
                 
                })
            }
-           
+            </div>
             </div>
            
             <Widgets/>
