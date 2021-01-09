@@ -7,6 +7,7 @@ const ForgettenPassword = () => {
     const close=()=>{
         document.getElementsByClassName("modal1")[0].style.display="none";
         setError("");
+        setEmail("");
     }
 
     const Forgetten=(e)=>{
