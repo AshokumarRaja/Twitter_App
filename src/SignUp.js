@@ -11,6 +11,10 @@ const SignUp = (props) => {
     const[mobile,setMobile]=useState("");
     const[error,setError]=useState("");
     const submitValue=(e)=>{
+        const length=mobile.length;
+        console.log(length)
+        if(length==10){
+            setError("");
        const random=Math.round( Math.random()*10000);
       
         e.preventDefault();
@@ -42,9 +46,14 @@ const SignUp = (props) => {
         })
      })
      .catch((error) => {
-        setError(error);
+        setError(error.message);
         console.log(error)
      });
+    }
+    else{
+        e.preventDefault();
+        setError("Enter Mininum 10 Numbers");
+    }
   
     }
     const close=()=>{
@@ -68,7 +77,8 @@ const SignUp = (props) => {
                <input type="email"  placeholder="Enter the Email" value={email} onChange={(e)=>setEmail(e.target.value)} required autoComplete="off" /><br/>
                <input type="password"  placeholder="Enter the Password" value={password} onChange={(e)=>setPassword(e.target.value)} required autoComplete="off" /><br/>
                <input type="number"  placeholder="Enter the Mobile Number" value={mobile} onChange={(e)=>{if(e.target.value.length==11) return false;setMobile(e.target.value)}} required /><br/>
-               <p style={{textAlign:"center",color:"red",marginBottom:"10px"}}>{error.message}</p>
+               <p style={{textAlign:"center",color:"red",marginBottom:"15px"}}>{error}</p>
+               <p></p>
                <button id="submit">Submit</button>
            </form>
           
